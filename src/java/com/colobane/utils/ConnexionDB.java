@@ -1,8 +1,9 @@
-package utils;
+package com.colobane.utils;
 
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,15 +21,13 @@ public class ConnexionDB {
 
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
-            String url = "jdbc:mysql://localhost:3306/l2tdsi";
+            String url = "jdbc:mysql://localhost:3308/colobaneonline";
             String user = "root";
             String password = "";
             Connection cnx = DriverManager.getConnection(url, user, password);
-            System.out.println("Connexion bien etablie");
             return cnx;
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
 
-            e.printStackTrace();
             return null;
         }
     }
